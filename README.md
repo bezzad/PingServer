@@ -10,12 +10,12 @@ Ping an address in a periodic time to know your internet is on or off. Or for an
 
 Before running app, set the host URL like this:
 
-![before](https://raw.githubusercontent.com/Behzadkhosravifar/HintTextBox/master/img/before.png)
+![before](https://raw.githubusercontent.com/Behzadkhosravifar/PingServer/master/img/before.png)
 
 
 and then click on ping. When the server is not response then app being like this:
 
-![after](https://raw.githubusercontent.com/Behzadkhosravifar/HintTextBox/master/img/afterOff.png)
+![after](https://raw.githubusercontent.com/Behzadkhosravifar/PingServer/master/img/afterOff.png)
 
 * When you minimize the application, the app will going to System try mode and hidden from taskbar.
 
