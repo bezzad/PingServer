@@ -1,0 +1,81 @@
+﻿<Window x:Name="MainWin" x:Class="PingServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="154" Width="525" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Icon="Resources/favicon.ico">
+    <Window.Resources>
+        <Storyboard x:Key="FailConnect">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF9BDEC9"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFFF9D3B"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF3CAEE2"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="Red"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SuccessConnect">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF9FE2CD"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF78FB1D"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF3BABDE"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF00FF0C"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="FailConnectRemove">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <SplineColorKeyFrame KeyTime="0" Value="#FFFF9D3B"/>
+                <SplineColorKeyFrame KeyTime="0:0:1" Value="#FF9BDEC9"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <SplineColorKeyFrame KeyTime="0" Value="Red"/>
+                <SplineColorKeyFrame KeyTime="0:0:1" Value="#FF3CAEE2"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SuccessConnectRemove">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF78FB1D"/>
+                <SplineColorKeyFrame KeyTime="0:0:1" Value="#FF9FE2CD"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="recForm">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF00FF0C"/>
+                <SplineColorKeyFrame KeyTime="0:0:1" Value="#FF3BABDE"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <Rectangle x:Name="recForm" HorizontalAlignment="Left" RadiusY="19.5" RadiusX="19.5" Stroke="Black" StrokeThickness="0" Width="505" Margin="10,10,0,12">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Rectangle.Effect>
+            <Rectangle.Fill>
+                <LinearGradientBrush
+StartPoint="0.5,0" Opacity="0.695" EndPoint="0.5,1">
+                    <GradientStop
+                		Color="#FF9DE2CC" Offset="0"/>
+                    <GradientStop
+                		Color="#FF3BACE0" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox x:Name="txtURL" Margin="72.667,33.499,139,0" TextWrapping="Wrap" Background="White" Opacity="0.74" Height="27" VerticalAlignment="Top" FontFamily="/PingServer;component/Fonts/#Traditional Arabic" FontSize="21.333"/>
+        <TextBlock x:Name="lblURL" HorizontalAlignment="Left" Margin="25,33.499,0,0" TextWrapping="Wrap" Text="URL:" VerticalAlignment="Top" FontSize="21.333" FontFamily="/PingServer;component/Fonts/#SimSun"/>
+        <Button x:Name="btnPing" Content="Ping" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Margin="25,92,0,0" Height="34.96" Cursor="Hand" FontFamily="/PingServer;component/Fonts/#Yu Mincho" FontSize="18.667" Click="btnPing_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFFFE437" BlurRadius="8"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="143,92,0,0" Height="34.96" IsCancel="True" Cursor="Hand" FontFamily="/PingServer;component/Fonts/#Yu Mincho" FontSize="18.667" Click="btnCancel_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFFFE437" BlurRadius="8"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="390,92,0,0" Height="34.96" Cursor="Hand" FontFamily="/PingServer;component/Fonts/#Yu Mincho" FontSize="18.667" Click="btnExit_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFFFE437" BlurRadius="8"/>
+            </Button.Effect>
+        </Button>
+        <Label x:Name="lblCounter" Content="0" HorizontalAlignment="Left" Height="30.187" Margin="391,29.499,0,0" VerticalAlignment="Top" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18.667" Foreground="#FFF3FF00"/>
+    </Grid>
+</Window>
